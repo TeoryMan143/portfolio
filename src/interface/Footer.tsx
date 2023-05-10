@@ -6,19 +6,22 @@ function Footer() {
     return (
         <footer className='p-3 bg-blue-500'>
             <ul className='flex gap-3 flex-col'>
-                <FooLi href='https://github.com/TeoryMan143/portfolio'>
+                <FooLi
+                    target='_blank'
+                    href='https://github.com/TeoryMan143/portfolio'
+                >
                     <span className='text-xl'>
                         <BsGithub />
                     </span>
                     Codigo Fuente
                 </FooLi>
-                <FooLi href='https://github.com/TeoryMan143'>
+                <FooLi target='_blank' href='https://github.com/TeoryMan143'>
                     <span className='text-xl'>
                         <FaUserTie />
                     </span>
                     Jonathan David Cortes Castaño
                 </FooLi>
-                <FooLi href='#'>
+                <FooLi href='#' target='_self'>
                     <span className='text-xl'>
                         <FaPencilRuler />
                     </span>

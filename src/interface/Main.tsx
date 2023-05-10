@@ -21,7 +21,7 @@ export const ROUTES = Object.freeze({
 
 function Main() {
     return (
-        <main className='flex-grow'>
+        <main className='flex-grow flex flex-col py-5 px-48'>
             <Routes>
                 <Route path={ROUTES.HOME} element={<Home />} />
                 <Route path={ROUTES.MATH.GEO} element={<GeoPlace />} />
