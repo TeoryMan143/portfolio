@@ -1,9 +1,9 @@
 interface Props {
     children: string;
-    clasName?: string;
+    className?: string;
 }
 
-function Text({ children, clasName }: Props) {
-    return <p className={`font-low text-white ${clasName}`}>{children}</p>;
+function Text({ children, className }: Props) {
+    return <p className={`font-low text-white ${className}`}>{children}</p>;
 }
 export default Text;
