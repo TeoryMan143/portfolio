@@ -4,7 +4,7 @@ import Circumference from '../pages/Circumference';
 import Home from '../pages/Home';
 
 export const ROUTES = Object.freeze({
-    HOME: '/',
+    HOME: '/*',
     MATH: {
         GEO: '/math1',
         CIRCUM: '/math2',
