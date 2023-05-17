@@ -7,7 +7,7 @@ function Circumference() {
         <>
             <Title>Circumferencia</Title>
             <Article className='flex justify-center'>
-                <Image src='src/pages/Circumference/assets/circum.jpg' />
+                <Image src='images/circum.jpg' />
             </Article>
         </>
     );

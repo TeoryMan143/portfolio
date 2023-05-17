@@ -27,7 +27,7 @@ function Home() {
                             </Text>
                         </div>
                         <div className='flex gap-8 flex-wrap 2xl:flex-nowrap justify-center'>
-                            <Image src='src/pages/Home/assets/react-ex.gif' />
+                            <Image src='images/react-ex.gif' />
                             <div className='flex flex-col gap-8'>
                                 <Text>
                                     React se basa en el concepto de componentes,

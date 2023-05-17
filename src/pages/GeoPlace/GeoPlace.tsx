@@ -8,8 +8,8 @@ function GeoPlace() {
             <Title>Lugar Geometrico</Title>
             <Article>
                 <div className='flex gap-9'>
-                    <Image src='src/pages/GeoPlace/assets/geo-1.jpg' />
-                    <Image src='src/pages/GeoPlace/assets/geo-2.jpg' />
+                    <Image src='images/geo-1.jpg' />
+                    <Image src='images/geo-2.jpg' />
                 </div>
             </Article>
         </>

@@ -37,7 +37,7 @@ function UnOrgTypes() {
                             hidrógeno y oxígeno:
                         </Text>
                         <Image
-                            src='src/pages/UnOrgTypes/assets/sint-ex.jpg'
+                            src='images/sint-ex.jpg'
                             className='self-center'
                         />
                     </div>
