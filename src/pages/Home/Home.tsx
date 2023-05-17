@@ -14,7 +14,7 @@ function Home() {
                 <Article>
                     <div className='flex flex-col gap-6'>
                         <div>
-                            <SubTitle className='mb-5'>
+                            <SubTitle>
                                 React <FaReact />
                             </SubTitle>
                             <Text>
