@@ -75,7 +75,7 @@ function Home() {
                             </Text>
                         </div>
                         <div className='flex gap-8 flex-wrap 2xl:flex-nowrap flex-row-reverse justify-center'>
-                            <Image src='src/pages/Home/assets/tailwind-ex.jpg' />
+                            <Image src='images/tailwind-ex.jpg' />
                             <div className='flex flex-col gap-8'>
                                 <Text>
                                     El enfoque &ldquo;utility-first&rdquo; de
