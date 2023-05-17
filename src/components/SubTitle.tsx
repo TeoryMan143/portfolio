@@ -6,7 +6,7 @@ interface Props {
 function SubTitle({ children, className }: Props) {
     return (
         <h3
-            className={`text-cyan-300 text-5xl font-high flex gap-2 items-center ${className}`}
+            className={`text-cyan-300 text-5xl font-high flex gap-2 items-center mb-5 ${className}`}
         >
             {children}
         </h3>
