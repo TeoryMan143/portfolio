@@ -42,6 +42,7 @@ export function useSplitTextAnimation() {
         scrollTrigger: {
           trigger: container,
           start: 'top 70%',
+          end: 'top 20%',
           toggleActions: 'play none none reverse',
         },
         x: -60,

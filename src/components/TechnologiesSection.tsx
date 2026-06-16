@@ -1,10 +1,10 @@
 import { useState } from 'react';
+import { useColumnsAnimation } from '../hooks/useColumnsAnimation';
 import { useSplitTextAnimation } from '../hooks/useSplitTextAnimation';
 
 interface Technology {
   id: string;
   name: string;
-  logo?: string;
 }
 
 interface TechnologyCategory {
@@ -44,6 +44,7 @@ function TechnologiesSection() {
         { id: 'nodejs', name: 'NodeJS' },
         { id: 'deno', name: 'Deno' },
         { id: 'tailwind', name: 'Tailwind' },
+        { id: 'tanstack-query', name: 'TanStack Query' },
       ],
     },
   ];
@@ -67,6 +68,8 @@ function TechnologiesSection() {
   const titleRef = useSplitTextAnimation();
   const pRef = useSplitTextAnimation();
 
+  const columnsRef = useColumnsAnimation();
+
   return (
     <section id='technologies' className='py-20 px-4 bg-slate-800'>
       <div className='max-w-6xl mx-auto'>
@@ -83,13 +86,16 @@ function TechnologiesSection() {
           </p>
         </div>
         {/* Three Column Layout */}
-        <div className='grid grid-cols-1 md:grid-cols-3 gap-8 mb-12'>
+        <div
+          ref={columnsRef}
+          className='grid grid-cols-1 md:grid-cols-3 gap-8 mb-12'
+        >
           {categories.map((category) => (
-            <div key={category.title} className='flex flex-col'>
+            <div key={category.title} data-column className='flex flex-col'>
               <h3 className='text-2xl font-bold text-blue-300 mb-6 pb-3 border-b border-blue-500/50'>
                 {category.title}
               </h3>
-              <div className='grid grid-cols-2 gap-3'>
+              <div className='grid grid-cols-3 gap-3'>
                 {category.items.map((tech) => (
                   <div
                     key={tech.id}
@@ -109,11 +115,11 @@ function TechnologiesSection() {
                       }`}
                     >
                       <div className='flex flex-col items-center gap-1'>
-                        <div className='w-8 h-8 rounded bg-slate-700/50 flex items-center justify-center group-hover:bg-slate-600 transition-colors'>
-                          <span className='text-sm font-bold text-gray-300'>
-                            {tech.name.substring(0, 2).toUpperCase()}
-                          </span>
-                        </div>
+                        <img
+                          src={`/techs/${tech.id}.svg`}
+                          className='w-8 h-8 rounded bg-slate-700/50 group-hover:bg-slate-600 transition-colors'
+                          alt={tech.name}
+                        />
                         <p className='text-gray-200 font-semibold text-xs group-hover:text-blue-300 transition-colors line-clamp-2'>
                           {tech.name}
                         </p>

@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/style/noNonNullAssertion: canvas is never null */
 import { useEffect, useRef } from 'react';
 
 export default function MatrixBackground() {
