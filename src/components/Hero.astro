@@ -1,13 +1,18 @@
 ---
 import pfp from '../assets/pic.jpg';
+import MatrixBackground from '../components/MatrixBackground';
 import ProfilePicture from '../components/ProfilePicture';
 import TypeWriter from '../components/TypeWriter';
 ---
 
 <section
-  class='min-h-screen bg-linear-to-br from-slate-900 via-blue-900 to-slate-900 flex items-center justify-center px-4 py-20'
+  id='hero'
+  class='relative min-h-screen bg-linear-to-br from-slate-900 via-blue-900 to-slate-900 flex items-center justify-center px-4 py-20'
 >
-  <div class='max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12'>
+  <MatrixBackground client:load />
+  <div
+    class='relative z-10 max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12'
+  >
     <!-- Profile Picture -->
     <div class='shrink-0'>
       <div

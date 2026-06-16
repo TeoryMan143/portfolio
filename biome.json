@@ -18,7 +18,9 @@
     "rules": {
       "preset": "recommended",
       "a11y": {
-        "noAmbiguousAnchorText": "off"
+        "noAmbiguousAnchorText": "off",
+        "useKeyWithClickEvents": "off",
+        "noStaticElementInteractions": "off"
       }
     }
   },

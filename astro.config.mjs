@@ -8,11 +8,6 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
-    resolve: {
-      alias: {
-        'typewriter-effect': 'typewriter-effect/dist/react.js',
-      },
-    },
   },
 
   integrations: [react()]
