@@ -12,6 +12,8 @@ export const ui = {
   en: {
     'hero.title': 'I am',
     'hero.sub': 'Full Stack Developer',
+    'hero.location': 'Based in Colombia',
+    'hero.availability': 'Open to Work',
     'hero.desc':
       'I create beautiful, performant web applications that solve real-world problems. With expertise in modern frameworks and design principles, I bring ideas to life.',
     'studies.title': 'Education',
@@ -28,10 +30,18 @@ export const ui = {
     'studies.icesi-se.description':
       'Pursuing a degree in Systems Engineering with a focus on software engineering, combining theoretical knowledge with practical development skills.',
     'studies.downloadCert': 'Download Certificate',
+    'languages.title': 'Languages',
+    'languages.subtitle': 'Languages I speak fluently',
+    'languages.proficiency': 'Proficiency',
+    'languages.spanish.description': 'Native speaker with years of experience in communication and development.',
+    'languages.english.description': 'Professional proficiency with Cambrige Linguaskill certification (C1 CEFR).',
+    'languages.portuguese.description': 'Intermediate-Advanced level with practical communication skills.',
   },
   es: {
     'hero.title': 'Soy',
     'hero.sub': 'Desarrollador Full Stack',
+    'hero.location': 'Basado en Colombia',
+    'hero.availability': 'Abierto a Oportunidades',
     'hero.desc':
       'Creo aplicaciones web con gran redimiento que resuelven problemas reales. Con experiencia en frameworks modernos y principios de diseño, hago tus ideas realidad.',
     'studies.title': 'Educación',
@@ -48,10 +58,18 @@ export const ui = {
     'studies.icesi-se.description':
       'Cursando una licenciatura en Ingeniería de Sistemas con enfoque en ingeniería de software, combinando conocimiento teórico con habilidades prácticas de desarrollo.',
     'studies.downloadCert': 'Descargar Certificado',
+    'languages.title': 'Idiomas',
+    'languages.subtitle': 'Idiomas que hablo con fluidez',
+    'languages.proficiency': 'Dominio',
+    'languages.spanish.description': 'Hablante nativo con años de experiencia en comunicación y desarrollo.',
+    'languages.english.description': 'Dominio profesional con certificación internacional (C1 CEFR).',
+    'languages.portuguese.description': 'Nivel intermedio-avanzado con habilidades de comunicación práctica.',
   },
   pt: {
     'hero.title': 'Soy',
     'hero.sub': 'Desarrollador Full Stack',
+    'hero.location': 'Baseado na Colômbia',
+    'hero.availability': 'Aberto a Oportunidades',
     'hero.desc':
       'Creo aplicaciones web con gran redimiento que resuelven problemas reales. Con experiencia en frameworks modernos y principios de diseño, hago tus ideas realidad.',
     'studies.title': 'Educação',
@@ -68,5 +86,11 @@ export const ui = {
     'studies.icesi-se.description':
       'Cursando um diploma em Engenharia de Sistemas com foco em engenharia de software, combinando conhecimento teórico com habilidades práticas de desenvolvimento.',
     'studies.downloadCert': 'Baixar Certificado',
+    'languages.title': 'Idiomas',
+    'languages.subtitle': 'Idiomas que falo com fluência',
+    'languages.proficiency': 'Proficiência',
+    'languages.spanish.description': 'Falante nativo com anos de experiência em comunicação e desenvolvimento.',
+    'languages.english.description': 'Proficiência profissional com certificação internacional (C1 CEFR).',
+    'languages.portuguese.description': 'Nível intermediário-avançado com habilidades de comunicação prática.',
   },
 } as const;

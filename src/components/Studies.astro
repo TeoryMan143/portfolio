@@ -51,7 +51,7 @@ const sortedStudies = [...studies].sort(
       <div class="space-y-12">
         {
           sortedStudies.map((study, index) => (
-            <div class="relative">
+            <div class="relative study-item">
               {/* Timeline dot */}
               <div
                 class={`absolute left-0 top-6 w-4 h-4 rounded-full border-4 border-slate-900 transform -translate-x-2.5 ${
@@ -130,3 +130,40 @@ const sortedStudies = [...studies].sort(
     </div>
   </div>
 </section>
+
+<style>
+  .study-item {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+
+  .study-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  const items = document.querySelectorAll(".study-item");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target); // animate once
+        }
+      });
+    },
+    { threshold: 0.15 },
+  );
+
+  items.forEach((item, index) => {
+    // stagger each card slightly
+    (item as HTMLElement).style.transitionDelay = `${index * 100}ms`;
+    observer.observe(item);
+  });
+</script>
