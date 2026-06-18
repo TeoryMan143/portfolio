@@ -4,6 +4,8 @@ export const languages = {
   pt: 'Português',
 };
 
+export type Locale = keyof typeof languages;
+
 export const defaultLang = 'en';
 
 export const ui = {

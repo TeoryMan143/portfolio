@@ -11,6 +11,7 @@ const project = defineCollection({
     title: z.string(),
     description: z.string(),
     tags: z.enum(tags).array(),
+    cover: z.string(),
   }),
 });
 

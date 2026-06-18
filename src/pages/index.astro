@@ -1,6 +1,8 @@
 ---
 import { defaultLang, ui } from "../i18n/ui";
 
+export const prerender = false;
+
 function getPreferredLang(acceptLanguage: string) {
   const langs = Object.keys(ui);
   const preferred = acceptLanguage

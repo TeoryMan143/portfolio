@@ -1,6 +1,8 @@
+import type { CollectionEntry } from 'astro:content';
 import { useState } from 'react';
 import { useColumnsAnimation } from '../hooks/useColumnsAnimation';
 import { useSplitTextAnimation } from '../hooks/useSplitTextAnimation';
+import type { Locale } from '../i18n/ui';
 
 interface Technology {
   id: string;
@@ -10,6 +12,10 @@ interface Technology {
 interface TechnologyCategory {
   title: string;
   items: Technology[];
+}
+
+interface ProjectsProps {
+  projects: CollectionEntry<'project'>[];
 }
 
 export const categories: TechnologyCategory[] = [
@@ -50,7 +56,7 @@ export const categories: TechnologyCategory[] = [
   },
 ] as const;
 
-function TechnologiesSection() {
+function TechnologiesSection({ projects }: ProjectsProps) {
   const [selected, setSelected] = useState<Set<string>>(new Set());
 
   const toggleTechnology = (id: string) => {
@@ -162,29 +168,79 @@ function TechnologiesSection() {
 
         {/* Selected Technologies Summary */}
 
-        <div className='bg-linear-to-r from-blue-900/30 to-slate-800/30 border border-blue-500/20 rounded-lg p-6'>
-          <span className='text-lg font-bold text-blue-300 mb-3 mr-5'>
-            Selected ({selected.size}):
-          </span>
-          <div className='inline-flex flex-wrap gap-2'>
-            {Array.from(selected).map((id) => {
-              // Find the technology name
-              const tech = categories
-                .flatMap((cat) => cat.items)
-                .find((item) => item.id === id);
-              return (
-                <span
-                  key={id}
-                  className='px-3 py-1 bg-blue-500 text-white rounded-full text-sm font-medium'
+        <div className='mt-12'>
+          <h3 className='text-2xl font-bold text-blue-300 mb-8'>My Projects</h3>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+            {projects
+              .filter((project) => {
+                // Show all projects if nothing is selected
+                if (selected.size === 0) return true;
+                // Filter projects that have at least one selected tag
+                return project.data.tags.some((tag) => selected.has(tag));
+              })
+              .map((project) => {
+                const [lang, slug] = project.id.split('/')
+                
+                return (
+                <a
+                  key={project.id}
+                  href={`/${lang}/project/${slug}`}
+                  className='group relative rounded-lg overflow-hidden bg-linear-to-br from-blue-900/30 to-slate-800/30 border border-blue-500/20 hover:border-blue-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 cursor-pointer'
                 >
-                  {tech?.name}
-                </span>
-              );
-            })}
+                  {/* Cover Image */}
+                  <div className='relative h-48 overflow-hidden bg-slate-900'>
+                    <img
+                      src={`/${project.data.cover}`}
+                      alt={project.data.title}
+                      className='w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 opacity-50'
+                    />
+                    <div className='absolute inset-0 bg-linear-to-t from-slate-900 via-transparent to-transparent' />
+                  </div>
+
+                  {/* Content */}
+                  <div className='p-6 relative z-10'>
+                    <h4 className='text-lg font-bold text-white mb-2 group-hover:text-blue-300 transition-colors'>
+                      {project.data.title}
+                    </h4>
+                    <p className='text-gray-300 text-sm mb-4 line-clamp-3'>
+                      {project.data.description}
+                    </p>
+
+                    {/* Tags */}
+                    <div className='flex flex-wrap gap-2'>
+                      {project.data.tags.map((tag) => {
+                        const tech = categories
+                          .flatMap((cat) => cat.items)
+                          .find((item) => item.id === tag);
+                        return (
+                          <span
+                            key={tag}
+                            className={`px-2 py-1 text-xs font-medium rounded-full transition-all ${
+                              selected.has(tag)
+                                ? 'bg-blue-500 text-white'
+                                : 'bg-blue-900/30 text-blue-300 border border-blue-500/30'
+                            }`}
+                          >
+                            {tech?.name}
+                          </span>
+                        );
+                      })}{' '}
+                    </div>
+                  </div>
+                </a>
+              )})}
           </div>
-          <p className='text-gray-400 text-sm mt-4'>
-            Selected array: {JSON.stringify(Array.from(selected))}
-          </p>
+
+          {projects.filter((project) => {
+            if (selected.size === 0) return true;
+            return project.data.tags.some((tag) => selected.has(tag));
+          }).length === 0 && (
+            <div className='text-center py-12'>
+              <p className='text-gray-400 text-lg'>
+                No projects found for the selected technologies.
+              </p>
+            </div>
+          )}
         </div>
 
         {/* Summary Section */}

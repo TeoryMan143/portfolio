@@ -4,18 +4,18 @@ import About from "../../components/About.astro";
 import Hero from "../../components/Hero.astro";
 import SocialMedia from "../../components/SocialMedia.astro";
 import Technologies from "../../components/Technologies.astro";
-import { languages } from "../../i18n/ui";
+import { languages, type Locale } from "../../i18n/ui";
 import Layout from "../../layouts/Layout.astro";
 
 export const getStaticPaths = (() => {
 	const langs = Object.keys(languages);
-	return langs.map((l) => ({ params: { lang: l } }));
+	return langs.map((l) => ({ params: { lang: l as Locale } }));
 }) satisfies GetStaticPaths;
 ---
 
 <Layout>
 	<Hero />
-	<Technologies />
+	<Technologies lang={Astro.params.lang} />
 	<About />
 	<SocialMedia />
 </Layout>
