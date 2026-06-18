@@ -1,13 +1,16 @@
 ---
-import { getLangFromUrl } from "../i18n/utils";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import LanguagePicker from "./LanguagePicker.astro";
 
 const lang = getLangFromUrl(Astro.url);
+// biome-ignore lint/correctness/useHookAtTopLevel: THIS IS NOT REACT
+const t = useTranslations(lang);
 
 const navLinks = [
-  { label: "Home", href: `/${lang}#` },
-  { label: "Technologies", href: `/${lang}#technologies` },
-  { label: "About", href: `/${lang}#about` },
-  { label: "Social", href: `/${lang}#social` },
+  { label: t("nav.home"), href: `/${lang}#` },
+  { label: t("nav.technologies"), href: `/${lang}#technologies` },
+  { label: t("nav.about"), href: `/${lang}#about` },
+  { label: t("nav.social"), href: `/${lang}#social` },
 ];
 ---
 
@@ -22,6 +25,7 @@ const navLinks = [
       >
         TM
       </div>
+      <span class="font-bold text-white">TeoryMan</span>
     </div>
 
     <!-- Nav Links -->
@@ -38,13 +42,8 @@ const navLinks = [
       }
     </div>
 
-    <!-- CTA Button -->
-    <a
-      href="#contact"
-      class="hidden md:block px-6 py-2 bg-linear-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-cyan-600 transition-all text-sm"
-    >
-      Contact
-    </a>
+    <!-- Language Picker -->
+    <LanguagePicker />
 
     <!-- Mobile Menu Button -->
     <button class="md:hidden text-gray-300 hover:text-blue-300" type="button">

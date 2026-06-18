@@ -74,13 +74,27 @@ const t = useTranslations(lang);
           href="#projects"
           class="px-8 py-3 bg-linear-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all transform hover:scale-105 shadow-lg"
         >
-          View My Work
+          {t("hero.mywork")}
         </a>
         <a
-          href="#contact"
-          class="px-8 py-3 border-2 border-blue-400 text-blue-300 font-semibold rounded-lg hover:bg-blue-500/10 transition-all"
+          href={`/cv-${lang}.pdf`}
+          download={`cv-${lang}.pdf`}
+          class="px-8 inline-flex justify-center items-center gap-2 py-3 border-2 border-blue-400 text-blue-300 font-semibold rounded-lg hover:bg-blue-500/10 transition-all"
         >
-          Get In Touch
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            viewBox="0 0 24 24"
+            class="text-2xl"
+          >
+            <title>Download</title>
+            <path
+              fill="currentColor"
+              d="m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11zm-6 4q-.825 0-1.412-.587T4 18v-3h2v3h12v-3h2v3q0 .825-.587 1.413T18 20z"
+            ></path>
+          </svg>
+          {t("hero.cv")}
         </a>
       </div>
     </div>

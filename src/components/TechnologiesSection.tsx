@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useColumnsAnimation } from '../hooks/useColumnsAnimation';
 import { useSplitTextAnimation } from '../hooks/useSplitTextAnimation';
 import type { Locale } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
 
 interface Technology {
   id: string;
@@ -16,7 +17,9 @@ interface TechnologyCategory {
 
 interface ProjectsProps {
   projects: CollectionEntry<'project'>[];
+  lang: Locale
 }
+
 
 export const categories: TechnologyCategory[] = [
   {
@@ -56,7 +59,7 @@ export const categories: TechnologyCategory[] = [
   },
 ] as const;
 
-function TechnologiesSection({ projects }: ProjectsProps) {
+function TechnologiesSection({ projects, lang}: ProjectsProps) {
   const [selected, setSelected] = useState<Set<string>>(new Set());
 
   const toggleTechnology = (id: string) => {
@@ -78,19 +81,21 @@ function TechnologiesSection({ projects }: ProjectsProps) {
 
   const columnsRef = useColumnsAnimation();
 
+  const t = useTranslations(lang)
+
   return (
     <section id='technologies' className='py-20 px-4 bg-slate-800'>
       <div className='max-w-6xl mx-auto'>
         <div ref={titleRef} className='text-center'>
           <h2 className='text-4xl md:text-5xl font-bold text-white mb-4'>
             {/* data-split tells the hook which spans to animate */}
-            <span data-split='plain'>Technologies &amp; </span>
-            <span data-split='gradient'>Skills</span>
+            <span data-split='plain'>{t('technologies.title')} &amp; </span>
+            <span data-split='gradient'>{ t('technologies.sub')}</span>
           </h2>
         </div>
         <div ref={pRef} className='text-center mb-16'>
           <p data-split='plain' className='text-gray-300 text-lg'>
-            Here's what I work with to create amazing experiences
+            {t('technologies.dec')}
           </p>
         </div>
         {/* Three Column Layout */}

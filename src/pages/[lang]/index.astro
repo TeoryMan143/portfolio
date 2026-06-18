@@ -4,10 +4,10 @@ import About from "../../components/About.astro";
 import Hero from "../../components/Hero.astro";
 import Languages from "../../components/Languages.astro";
 import SocialMedia from "../../components/SocialMedia.astro";
-import Technologies from "../../components/Technologies.astro";
 import Studies from "../../components/Studies.astro";
-import { languages, type Locale } from "../../i18n/ui";
+import Technologies from "../../components/Technologies.astro";
 import { studies } from "../../data/studies";
+import { type Locale, languages } from "../../i18n/ui";
 import Layout from "../../layouts/Layout.astro";
 
 export const getStaticPaths = (() => {
@@ -19,8 +19,8 @@ export const getStaticPaths = (() => {
 <Layout>
 	<Hero />
 	<Technologies lang={Astro.params.lang} />
-	<Studies client:load studies={studies} lang={Astro.params.lang} />
+	<Studies studies={studies} lang={Astro.params.lang} />
 	<About />
 	<Languages />
-	<SocialMedia />
+	<SocialMedia lang={Astro.params.lang} />
 </Layout>

@@ -21,6 +21,9 @@
         "noAmbiguousAnchorText": "off",
         "useKeyWithClickEvents": "off",
         "noStaticElementInteractions": "off"
+      },
+      "correctness": {
+        "useJsxKeyInIterable": "off"
       }
     }
   },
