@@ -3,6 +3,7 @@ title: Langdle
 description: ¡Un juego estilo Wordle pero para idiomas!
 tags: [js, ts, react, nextjs, tailwind, nodejs, css, html, git, tanstack-query, sql, postgres]
 cover: langdle-cover.png
+repo: https://github.com/TeoryMan143/langdle
 ---
 
 Langdle es un puzzle lingüístico diario inspirado en Wordle. En lugar de adivinar una

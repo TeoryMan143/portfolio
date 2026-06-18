@@ -12,6 +12,7 @@ const project = defineCollection({
     description: z.string(),
     tags: z.enum(tags).array(),
     cover: z.string(),
+    repo: z.url()
   }),
 });
 
