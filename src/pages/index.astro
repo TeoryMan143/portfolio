@@ -1,14 +1,18 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import Technologies from '../components/Technologies.astro';
-import About from '../components/About.astro';
-import SocialMedia from '../components/SocialMedia.astro';
----
+import { defaultLang, ui } from "../i18n/ui";
 
-<Layout>
-	<Hero />
-	<Technologies />
-	<About />
-	<SocialMedia />
-</Layout>
+function getPreferredLang(acceptLanguage: string) {
+  const langs = Object.keys(ui);
+  const preferred = acceptLanguage
+    .split(",")
+    .map((lang) => lang.split(";")[0].trim().split("-")[0])
+    .find((lang) => langs.includes(lang));
+
+  return preferred || defaultLang;
+}
+
+const acceptLanguage = Astro.request.headers.get("accept-language") || "";
+const lang = getPreferredLang(acceptLanguage);
+
+return Astro.redirect(`/${lang}/`);
+---

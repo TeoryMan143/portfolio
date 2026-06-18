@@ -12,43 +12,45 @@ interface TechnologyCategory {
   items: Technology[];
 }
 
-function TechnologiesSection() {
-  const categories: TechnologyCategory[] = [
-    {
-      title: 'Programming Languages',
-      items: [
-        { id: 'js', name: 'JavaScript' },
-        { id: 'ts', name: 'TypeScript' },
-        { id: 'java', name: 'Java' },
-        { id: 'scala', name: 'Scala' },
-        { id: 'dart', name: 'Dart' },
-        { id: 'python', name: 'Python' },
-        { id: 'html', name: 'HTML' },
-        { id: 'css', name: 'CSS' },
-      ],
-    },
-    {
-      title: 'Frameworks',
-      items: [
-        { id: 'react', name: 'React' },
-        { id: 'nextjs', name: 'NextJS' },
-        { id: 'astro', name: 'Astro' },
-        { id: 'spring', name: 'Spring' },
-        { id: 'flutter', name: 'Flutter' },
-      ],
-    },
-    {
-      title: 'Tools',
-      items: [
-        { id: 'git', name: 'Git' },
-        { id: 'nodejs', name: 'NodeJS' },
-        { id: 'deno', name: 'Deno' },
-        { id: 'tailwind', name: 'Tailwind' },
-        { id: 'tanstack-query', name: 'TanStack Query' },
-      ],
-    },
-  ];
+export const categories: TechnologyCategory[] = [
+  {
+    title: 'Programming Languages',
+    items: [
+      { id: 'js', name: 'JavaScript' },
+      { id: 'ts', name: 'TypeScript' },
+      { id: 'java', name: 'Java' },
+      { id: 'scala', name: 'Scala' },
+      { id: 'dart', name: 'Dart' },
+      { id: 'python', name: 'Python' },
+      { id: 'html', name: 'HTML' },
+      { id: 'css', name: 'CSS' },
+    ],
+  },
+  {
+    title: 'Frameworks',
+    items: [
+      { id: 'react', name: 'React' },
+      { id: 'nextjs', name: 'NextJS' },
+      { id: 'astro', name: 'Astro' },
+      { id: 'spring', name: 'Spring' },
+      { id: 'flutter', name: 'Flutter' },
+    ],
+  },
+  {
+    title: 'Tools',
+    items: [
+      { id: 'git', name: 'Git' },
+      { id: 'nodejs', name: 'NodeJS' },
+      { id: 'deno', name: 'Deno' },
+      { id: 'tailwind', name: 'Tailwind' },
+      { id: 'tanstack-query', name: 'TanStack Query' },
+      { id: 'sql', name: 'SQL' },
+      { id: 'postgres', name: 'PostgreSQL' },
+    ],
+  },
+] as const;
 
+function TechnologiesSection() {
   const [selected, setSelected] = useState<Set<string>>(new Set());
 
   const toggleTechnology = (id: string) => {

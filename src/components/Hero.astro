@@ -1,65 +1,66 @@
 ---
-import pfp from '../assets/pic.jpg';
-import MatrixBackground from '../components/MatrixBackground';
-import ProfilePicture from '../components/ProfilePicture';
-import TypeWriter from '../components/TypeWriter';
+import pfp from "../assets/pic.jpg";
+import MatrixBackground from "../components/MatrixBackground";
+import ProfilePicture from "../components/ProfilePicture";
+import TypeWriter from "../components/TypeWriter";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+// biome-ignore lint/correctness/useHookAtTopLevel: THIS IS NOT REACT
+const t = useTranslations(lang);
 ---
 
 <section
-  id='hero'
-  class='relative min-h-screen bg-linear-to-br from-slate-900 via-blue-900 to-slate-900 flex items-center justify-center px-4 py-20'
+  id="hero"
+  class="relative min-h-screen bg-linear-to-br from-slate-900 via-blue-900 to-slate-900 flex items-center justify-center px-4 py-20"
 >
   <MatrixBackground client:load />
   <div
-    class='relative z-10 max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12'
+    class="relative z-10 max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12"
   >
     <!-- Profile Picture -->
-    <div class='shrink-0'>
+    <div class="shrink-0">
       <div
-        class='rounded-full border-2 border-blue-600 size-80 overflow-hidden'
+        class="rounded-full border-2 border-blue-600 size-80 overflow-hidden"
       >
         <ProfilePicture src={pfp.src} client:load />
       </div>
     </div>
 
     <!-- Content -->
-    <div class='flex-1 text-center md:text-left'>
-      <h1 class='text-4xl md:text-5xl font-bold text-white mb-4 leading-tight'>
-        Hi, I'm{' '}
+    <div class="flex-1 text-center md:text-left">
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+        {t("hero.title")}{" "}
         <TypeWriter
           client:load
           delay={65}
-          text='Jonathan Cortés'
-          className='text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-cyan-300'
+          text="Jonathan Cortés"
+          className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-cyan-300"
         />
       </h1>
 
-      <p class='text-2xl md:text-3xl text-blue-200 mb-6 font-light'>
-        <TypeWriter client:load text='Full Stack Developer' delay={50} />
+      <p class="text-2xl md:text-3xl text-blue-200 mb-6 font-light">
+        <TypeWriter client:load text={t("hero.sub")} delay={50} />
       </p>
 
       <p
-        class='text-lg text-gray-300 mb-8 leading-relaxed max-w-xl text-balance'
+        class="text-lg text-gray-300 mb-8 leading-relaxed max-w-xl text-balance"
       >
-        <TypeWriter
-          client:load
-          text='I create beautiful, performant web applications that solve real-world problems. With expertise in modern frameworks and design principles, I bring ideas to life.'
-          delay={25}
-        />
+        <TypeWriter client:load text={t("hero.desc")} delay={25} />
       </p>
 
       <div
-        class='flex flex-col sm:flex-row gap-4 justify-center md:justify-start'
+        class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
       >
         <a
-          href='#projects'
-          class='px-8 py-3 bg-linear-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all transform hover:scale-105 shadow-lg'
+          href="#projects"
+          class="px-8 py-3 bg-linear-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all transform hover:scale-105 shadow-lg"
         >
           View My Work
         </a>
         <a
-          href='#contact'
-          class='px-8 py-3 border-2 border-blue-400 text-blue-300 font-semibold rounded-lg hover:bg-blue-500/10 transition-all'
+          href="#contact"
+          class="px-8 py-3 border-2 border-blue-400 text-blue-300 font-semibold rounded-lg hover:bg-blue-500/10 transition-all"
         >
           Get In Touch
         </a>
@@ -69,20 +70,20 @@ import TypeWriter from '../components/TypeWriter';
 
   <!-- Scroll Indicator -->
   <div
-    class='absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce'
+    class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
   >
     <svg
-      class='w-6 h-6 text-blue-400'
-      fill='none'
-      stroke='currentColor'
-      viewBox='0 0 24 24'
+      class="w-6 h-6 text-blue-400"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
     >
       <title>Down arrow</title>
       <path
-        stroke-linecap='round'
-        stroke-linejoin='round'
-        stroke-width='2'
-        d='M19 14l-7 7m0 0l-7-7m7 7V3'></path>
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
     </svg>
   </div>
 </section>
