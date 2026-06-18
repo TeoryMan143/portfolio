@@ -1,13 +1,16 @@
 ---
-import { getLangFromUrl } from "../i18n/utils";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 
+// biome-ignore lint/correctness/useHookAtTopLevel: THIS IS NOT REACT
+const t = useTranslations(lang)
+
 const navLinks = [
-  { label: "Home", href: `/${lang}#` },
-  { label: "Technologies", href: `/${lang}#technologies` },
-  { label: "About", href: `/${lang}#about` },
-  { label: "Social", href: `/${lang}#social` },
+  { label: t('nav.home'), href: `/${lang}#` },
+  { label: t('nav.technologies'), href: `/${lang}#technologies` },
+  { label: t('nav.about'), href: `/${lang}#about` },
+  { label: t('nav.social'), href: `/${lang}#social` },
 ];
 ---
 
@@ -24,12 +27,12 @@ const navLinks = [
           </div>
           <span class="font-bold text-white">TeoryMan</span>
         </div>
-        <p class="text-gray-400 text-sm">Building amazing web experiences</p>
+        <p class="text-gray-400 text-sm">{t('footer.tagline')}</p>
       </div>
 
       <!-- Quick Links -->
       <div>
-        <h3 class="text-white font-semibold mb-4">Quick Links</h3>
+        <h3 class="text-white font-semibold mb-4">{t('footer.quickLinks')}</h3>
         <ul class="space-y-2">
           {
             navLinks.map(({ href, label }) => (
@@ -48,7 +51,7 @@ const navLinks = [
 
       <!-- Social Links -->
       <div>
-        <h3 class="text-white font-semibold mb-4">Follow Me</h3>
+        <h3 class="text-white font-semibold mb-4">{t('footer.socialLinks')}</h3>
         <div class="flex gap-4">
           <a
             href="https://github.com/TeoryMan143"
