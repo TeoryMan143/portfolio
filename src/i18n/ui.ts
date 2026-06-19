@@ -232,7 +232,7 @@ export const ui = {
 
     // Studies
     'studies.title': 'Educação',
-    'studies.studies': 'Estúdios',
+    'studies.studies': 'Estudos',
     'studies.subtitle': 'Minha jornada de aprendizado e conquistas',
     'studies.inProgress': 'Em Progresso',
     'studies.sena-dev.institution': 'Serviço Nacional de Aprendizagem (Sena)',
