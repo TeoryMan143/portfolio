@@ -97,20 +97,19 @@ const sortedStudies = [...studies].sort(
                     download={study.certificateName}
                     class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors font-medium text-sm"
                   >
-                    <svg
-                      class="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <title>{t("studies.downloadCert")}</title>
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width={2}
-                        d="M12 19l9 2-9-18-9 18 9-2m0 0v-8m0 8a9 9 0 0118 0m-18 0a9 9 0 0018 0"
-                      />
-                    </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="1em"
+                    height="1em"
+                    viewBox="0 0 24 24"
+                    class="text-2xl"
+                  >
+                    <title>Download</title>
+                    <path
+                      fill="currentColor"
+                      d="m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11zm-6 4q-.825 0-1.412-.587T4 18v-3h2v3h12v-3h2v3q0 .825-.587 1.413T18 20z"
+                    ></path>
+                  </svg>
                     {t("studies.downloadCert")}
                   </a>
                 )}
