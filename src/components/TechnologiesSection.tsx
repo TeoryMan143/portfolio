@@ -191,6 +191,7 @@ function TechnologiesSection({ projects, lang }: ProjectsProps) {
                     key={project.id}
                     href={`/${lang}/project/${slug}`}
                     className='group relative rounded-lg overflow-hidden bg-linear-to-br from-blue-900/30 to-slate-800/30 border border-blue-500/20 hover:border-blue-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 cursor-pointer'
+                    style={{ viewTransitionName: slug }}
                   >
                     {/* Cover Image */}
                     <div className='relative h-48 overflow-hidden bg-slate-900'>
@@ -198,13 +199,17 @@ function TechnologiesSection({ projects, lang }: ProjectsProps) {
                         src={`/${project.data.cover}`}
                         alt={project.data.title}
                         className='w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 opacity-50'
+                        style={{ viewTransitionName: `${slug}-image` }}
                       />
                       <div className='absolute inset-0 bg-linear-to-t from-slate-900 via-transparent to-transparent' />
                     </div>
 
                     {/* Content */}
                     <div className='p-6 relative z-10'>
-                      <h4 className='text-lg font-bold text-white mb-2 group-hover:text-blue-300 transition-colors'>
+                      <h4
+                        className='text-lg font-bold text-white mb-2 group-hover:text-blue-300 transition-colors'
+                        style={{ viewTransitionName: `${slug}-title` }}
+                      >
                         {project.data.title}
                       </h4>
                       <p className='text-gray-300 text-sm mb-4 line-clamp-3'>

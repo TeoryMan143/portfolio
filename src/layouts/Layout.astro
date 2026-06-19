@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import {ClientRouter} from 'astro:transitions'
 import Footer from "../components/Footer.astro";
 import Navigation from "../components/Navigation.astro";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
@@ -23,6 +24,7 @@ const { title = "Portfolio - Jonathan Cortes" } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>{title}</title>
+		<ClientRouter />
 	</head>
 	<body class="bg-slate-900 text-white">
 		<Navigation />

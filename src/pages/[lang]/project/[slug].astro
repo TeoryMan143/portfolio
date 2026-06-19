@@ -18,15 +18,26 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths;
 
 const { project } = Astro.props;
+const {slug} = Astro.params
 const {
-  data: { title, repo },
+  data: { title, repo, cover },
 } = project;
 const { Content } = await render(project);
 ---
 
 <Layout title={`Project - ${title}`}>
-  <article class="prose prose-invert prose-cyan max-w-3xl mx-auto my-25 px-6">
-    <h1>{title}</h1>
+  <article class="prose prose-invert prose-cyan max-w-3xl mx-auto my-25 px-6" transition:name={slug}>
+    {
+      cover && (
+        <img
+          transition:name={`${slug}-image`}
+          src={`/${cover}`}
+          alt={`${title} cover`}
+          class="rounded-lg w-full mb-8 object-cover max-h-96"
+        />
+      )
+    }
+    <h1 transition:name={`${slug}-title`} >{title}</h1>
     {
       repo && (
         <a
