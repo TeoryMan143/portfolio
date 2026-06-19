@@ -107,7 +107,7 @@ function TechnologiesSection({ projects, lang }: ProjectsProps) {
               <h3 className='text-2xl font-bold text-blue-300 mb-6 pb-3 border-b border-blue-500/50'>
                 {category.title}
               </h3>
-              <div className='grid grid-cols-3 gap-3'>
+              <div className='grid grid-cols-4 md:grid-cols-3 gap-3'>
                 {category.items.map((tech) => (
                   <div
                     key={tech.id}
@@ -118,7 +118,6 @@ function TechnologiesSection({ projects, lang }: ProjectsProps) {
                         : 'hover:ring-2 hover:ring-blue-400/60'
                     }`}
                   >
-                    {/* Logo Placeholder Box */}
                     <div
                       className={`aspect-square rounded-lg flex items-center justify-center text-center p-3 border-2 transition-all ${
                         isSelected(tech.id)
