@@ -69,6 +69,13 @@ export const ui = {
     'technologies.plangs': 'Programming Languages',
     'technologies.tools': 'Tools',
 
+    // What I Do
+    'whatIDo.title': 'What I Do',
+    'whatIDo.item1': 'Build responsive and accessible web applications',
+    'whatIDo.item2': 'Design modern user interfaces with great UX principles',
+    'whatIDo.item3': 'Develop full-stack solutions from concept to deployment',
+    'whatIDo.item4': 'Collaborate with teams to deliver high-quality products',
+
     // Languages
     'languages.title': 'Languages',
     'languages.subtitle': 'Languages I speak fluently',
@@ -154,6 +161,16 @@ export const ui = {
     'technologies.plangs': 'Leguajes de programación',
     'technologies.tools': 'Herramientas',
 
+    // Lo que hago
+    'whatIDo.title': 'Lo que hago',
+    'whatIDo.item1': 'Desarrollo aplicaciones web responsivas y accesibles',
+    'whatIDo.item2':
+      'Diseño interfaces modernas con excelentes principios de experiencia de usuario',
+    'whatIDo.item3':
+      'Desarrollo soluciones full-stack desde el concepto hasta el despliegue',
+    'whatIDo.item4':
+      'Colaboro con equipos para entregar productos de alta calidad',
+
     // Languages
     'languages.title': 'Idiomas',
     'languages.subtitle': 'Idiomas que hablo con fluidez',
@@ -237,6 +254,16 @@ export const ui = {
     'technologies.dec': 'O que uso para ciar experiências incríveis',
     'technologies.plangs': 'Linguagens de programação',
     'technologies.tools': 'Ferramentas',
+
+    // O que faço
+    'whatIDo.title': 'O que faço',
+    'whatIDo.item1': 'Desenvolvo aplicações web responsivas e acessíveis',
+    'whatIDo.item2':
+      'Projeto interfaces modernas com excelentes princípios de experiência do usuário',
+    'whatIDo.item3':
+      'Desenvolvo soluções full-stack desde o conceito até a implantação',
+    'whatIDo.item4':
+      'Colaboro com equipes para entregar produtos de alta qualidade',
 
     // Languages
     'languages.title': 'Idiomas',

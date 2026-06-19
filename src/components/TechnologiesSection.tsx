@@ -17,9 +17,8 @@ interface TechnologyCategory {
 
 interface ProjectsProps {
   projects: CollectionEntry<'project'>[];
-  lang: Locale
+  lang: Locale;
 }
-
 
 export const categories: TechnologyCategory[] = [
   {
@@ -59,7 +58,7 @@ export const categories: TechnologyCategory[] = [
   },
 ] as const;
 
-function TechnologiesSection({ projects, lang}: ProjectsProps) {
+function TechnologiesSection({ projects, lang }: ProjectsProps) {
   const [selected, setSelected] = useState<Set<string>>(new Set());
 
   const toggleTechnology = (id: string) => {
@@ -81,7 +80,7 @@ function TechnologiesSection({ projects, lang}: ProjectsProps) {
 
   const columnsRef = useColumnsAnimation();
 
-  const t = useTranslations(lang)
+  const t = useTranslations(lang);
 
   return (
     <section id='technologies' className='py-20 px-4 bg-slate-800'>
@@ -90,7 +89,7 @@ function TechnologiesSection({ projects, lang}: ProjectsProps) {
           <h2 className='text-4xl md:text-5xl font-bold text-white mb-4'>
             {/* data-split tells the hook which spans to animate */}
             <span data-split='plain'>{t('technologies.title')} &amp; </span>
-            <span data-split='gradient'>{ t('technologies.sub')}</span>
+            <span data-split='gradient'>{t('technologies.sub')}</span>
           </h2>
         </div>
         <div ref={pRef} className='text-center mb-16'>
@@ -174,7 +173,9 @@ function TechnologiesSection({ projects, lang}: ProjectsProps) {
         {/* Selected Technologies Summary */}
 
         <div className='mt-12'>
-          <h3 id='projects' className='text-2xl font-bold text-blue-300 mb-8'>My Projects</h3>
+          <h3 id='projects' className='text-2xl font-bold text-blue-300 mb-8'>
+            My Projects
+          </h3>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
             {projects
               .filter((project) => {
@@ -184,56 +185,57 @@ function TechnologiesSection({ projects, lang}: ProjectsProps) {
                 return project.data.tags.some((tag) => selected.has(tag));
               })
               .map((project) => {
-                const [lang, slug] = project.id.split('/')
-                
+                const [lang, slug] = project.id.split('/');
+
                 return (
-                <a
-                  key={project.id}
-                  href={`/${lang}/project/${slug}`}
-                  className='group relative rounded-lg overflow-hidden bg-linear-to-br from-blue-900/30 to-slate-800/30 border border-blue-500/20 hover:border-blue-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 cursor-pointer'
-                >
-                  {/* Cover Image */}
-                  <div className='relative h-48 overflow-hidden bg-slate-900'>
-                    <img
-                      src={`/${project.data.cover}`}
-                      alt={project.data.title}
-                      className='w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 opacity-50'
-                    />
-                    <div className='absolute inset-0 bg-linear-to-t from-slate-900 via-transparent to-transparent' />
-                  </div>
-
-                  {/* Content */}
-                  <div className='p-6 relative z-10'>
-                    <h4 className='text-lg font-bold text-white mb-2 group-hover:text-blue-300 transition-colors'>
-                      {project.data.title}
-                    </h4>
-                    <p className='text-gray-300 text-sm mb-4 line-clamp-3'>
-                      {project.data.description}
-                    </p>
-
-                    {/* Tags */}
-                    <div className='flex flex-wrap gap-2'>
-                      {project.data.tags.map((tag) => {
-                        const tech = categories
-                          .flatMap((cat) => cat.items)
-                          .find((item) => item.id === tag);
-                        return (
-                          <span
-                            key={tag}
-                            className={`px-2 py-1 text-xs font-medium rounded-full transition-all ${
-                              selected.has(tag)
-                                ? 'bg-blue-500 text-white'
-                                : 'bg-blue-900/30 text-blue-300 border border-blue-500/30'
-                            }`}
-                          >
-                            {tech?.name}
-                          </span>
-                        );
-                      })}{' '}
+                  <a
+                    key={project.id}
+                    href={`/${lang}/project/${slug}`}
+                    className='group relative rounded-lg overflow-hidden bg-linear-to-br from-blue-900/30 to-slate-800/30 border border-blue-500/20 hover:border-blue-400/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 cursor-pointer'
+                  >
+                    {/* Cover Image */}
+                    <div className='relative h-48 overflow-hidden bg-slate-900'>
+                      <img
+                        src={`/${project.data.cover}`}
+                        alt={project.data.title}
+                        className='w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 opacity-50'
+                      />
+                      <div className='absolute inset-0 bg-linear-to-t from-slate-900 via-transparent to-transparent' />
                     </div>
-                  </div>
-                </a>
-              )})}
+
+                    {/* Content */}
+                    <div className='p-6 relative z-10'>
+                      <h4 className='text-lg font-bold text-white mb-2 group-hover:text-blue-300 transition-colors'>
+                        {project.data.title}
+                      </h4>
+                      <p className='text-gray-300 text-sm mb-4 line-clamp-3'>
+                        {project.data.description}
+                      </p>
+
+                      {/* Tags */}
+                      <div className='flex flex-wrap gap-2'>
+                        {project.data.tags.map((tag) => {
+                          const tech = categories
+                            .flatMap((cat) => cat.items)
+                            .find((item) => item.id === tag);
+                          return (
+                            <span
+                              key={tag}
+                              className={`px-2 py-1 text-xs font-medium rounded-full transition-all ${
+                                selected.has(tag)
+                                  ? 'bg-blue-500 text-white'
+                                  : 'bg-blue-900/30 text-blue-300 border border-blue-500/30'
+                              }`}
+                            >
+                              {tech?.name}
+                            </span>
+                          );
+                        })}{' '}
+                      </div>
+                    </div>
+                  </a>
+                );
+              })}
           </div>
 
           {projects.filter((project) => {
@@ -250,29 +252,25 @@ function TechnologiesSection({ projects, lang}: ProjectsProps) {
 
         {/* Summary Section */}
         <div className='mt-12 bg-linear-to-r from-blue-900/30 to-slate-800/30 border border-blue-500/20 rounded-lg p-8'>
-          <h3 className='text-xl font-bold text-blue-300 mb-4'>What I Do</h3>
+          <h3 className='text-xl font-bold text-blue-300 mb-4'>
+            {t('whatIDo.title')}
+          </h3>
           <ul className='text-gray-300 space-y-2'>
             <li className='flex items-start'>
               <span className='text-blue-400 mr-3'>✓</span>
-              <span>Build responsive and accessible web applications</span>
+              <span> {t('whatIDo.item1')}</span>
             </li>
             <li className='flex items-start'>
               <span className='text-blue-400 mr-3'>✓</span>
-              <span>
-                Design modern user interfaces with great UX principles
-              </span>
+              <span>{t('whatIDo.item2')}</span>
             </li>
             <li className='flex items-start'>
               <span className='text-blue-400 mr-3'>✓</span>
-              <span>
-                Develop full-stack solutions from concept to deployment
-              </span>
+              <span>{t('whatIDo.item3')}</span>
             </li>
             <li className='flex items-start'>
               <span className='text-blue-400 mr-3'>✓</span>
-              <span>
-                Collaborate with teams to deliver high-quality products
-              </span>
+              <span>{t('whatIDo.item4')}</span>
             </li>
           </ul>
         </div>
