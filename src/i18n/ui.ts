@@ -150,7 +150,7 @@ export const ui = {
     'studies.icesi-se.degree': 'Pregrado en Ingeniería de Sistemas',
     'studies.icesi-se.field': 'Ingeniería de Software',
     'studies.icesi-se.description':
-      'Cursando una pregrado en Ingeniería de Sistemas con enfoque en ingeniería de software, combinando conocimiento teórico con habilidades prácticas de desarrollo.',
+      'Cursando un pregrado en Ingeniería de Sistemas con enfoque en ingeniería de software, combinando conocimiento teórico con habilidades prácticas de desarrollo.',
     'studies.downloadCert': 'Descargar Certificado',
     'studies.in': 'en',
 
