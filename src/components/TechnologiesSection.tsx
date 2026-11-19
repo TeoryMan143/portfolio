@@ -49,7 +49,6 @@ export const categories: TechnologyCategory[] = [
     items: [
       { id: 'git', name: 'Git' },
       { id: 'nodejs', name: 'NodeJS' },
-      { id: 'deno', name: 'Deno' },
       { id: 'tailwind', name: 'Tailwind' },
       { id: 'tanstack-query', name: 'TanStack Query' },
       { id: 'sql', name: 'SQL' },
